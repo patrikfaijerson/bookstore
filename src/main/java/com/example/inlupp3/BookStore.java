@@ -5,6 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Represents a book store
+ * 
+ */
 @Entity
 class BookStore{
 
@@ -14,16 +18,14 @@ class BookStore{
     
     private String name;
     private String address;
-    private String bookId;
-   
-    
+    private int nrOfBooks;
 
     public BookStore(){}
 
-    public BookStore(String name, String address, String bookId){
+    public BookStore(String name, String address, int nrOfBooks){
         this.name = name;
         this.address = address;
-        this.bookId = bookId;
+        this.nrOfBooks = nrOfBooks;
     }
 
     /**
@@ -58,8 +60,8 @@ class BookStore{
        return name;
     }
 
-    public String getBookId() {
-      return bookId;
+    public int getNrOfBooks() {
+      return nrOfBooks;
     }
    public void setId(Integer id) {
        this.id = id;
@@ -73,8 +75,8 @@ class BookStore{
        this.name = name;
    }
 
-   public void setBookId(String bookId) {
-       this.bookId = bookId;
+   public void setNrOfBooks(int nrOfBooks) {
+       this.nrOfBooks = nrOfBooks;
    }
 
 

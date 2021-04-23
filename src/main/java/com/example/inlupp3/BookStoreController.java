@@ -44,7 +44,7 @@ public class BookStoreController {
             BookStore savedBookStore = bookStoreRepository.findById(id).get();
             savedBookStore.setName(bookStoreToUpdate.getName());
             savedBookStore.setAddress(bookStoreToUpdate.getAddress());
-            savedBookStore.setBookId(bookStoreToUpdate.getBookId());
+            savedBookStore.setNrOfBooks(bookStoreToUpdate.getNrOfBooks());
             bookStoreRepository.save(savedBookStore);
             return savedBookStore;
     }
