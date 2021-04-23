@@ -68,7 +68,7 @@ class BookStore{
 
     public int getShelves() {
         return shelves;
-      }
+    }
 
    public void setId(Integer id) {
        this.id = id;
@@ -85,6 +85,10 @@ class BookStore{
    public void setNrOfBooks(int nrOfBooks) {
        this.nrOfBooks = nrOfBooks;
    }
+
+   public void setShelves(int shelves) {
+    this.shelves = shelves;
+}
 
    
 
