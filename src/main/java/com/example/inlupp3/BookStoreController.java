@@ -42,15 +42,21 @@ public class BookStoreController {
     @CrossOrigin
         BookStore updateBookStore(@PathVariable Integer id, @RequestBody BookStore bookStoreToUpdate){
             BookStore savedBookStore = bookStoreRepository.findById(id).get();
+            int nrOfBooks = bookstoreToUpdate.getNrOfBooks();
+            int shelves = bookstoreToUpdate.calculateShelves(nrOfBoks);         
             savedBookStore.setName(bookStoreToUpdate.getName());
             savedBookStore.setAddress(bookStoreToUpdate.getAddress());
             savedBookStore.setNrOfBooks(bookStoreToUpdate.getNrOfBooks());
+            savedBookStore.setShelves(shelves);
             bookStoreRepository.save(savedBookStore);
             return savedBookStore;
     }
 
     @PostMapping(path = "/bookstore", consumes="application/json", produces="application/json")
         ResponseEntity<BookStore> createBookStore(@RequestBody BookStore bookstoreToCreate){
+            int nrOfBooks = bookstoreToCreate.getNrOfBooks();
+            int shelves = bookstoreToCreate.calculateShelves(nrOfBoks);
+            bookstoreToCreate.setShelves(shelves);
             bookStoreRepository.save(bookstoreToCreate);
 
             URI location = ServletUriComponentsBuilder.fromCurrentRequest()
