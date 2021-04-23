@@ -38,6 +38,17 @@ class BookStoreTest {
 		assertEquals(1, shelves);
 	}
 
-	
+	@Test
+	void verifyRoundsUp() {
+		BookStore bookStore = new BookStore();
+		int shelves = bookStore.calculateShelves(153);
+		assertEquals(4, shelves);
+	}
 
+	@Test
+	void verifyRoundsUp2() {
+		BookStore bookStore = new BookStore();
+		int shelves = bookStore.calculateShelves(149);
+		assertEquals(3, shelves);
+	}
 }

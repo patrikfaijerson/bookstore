@@ -44,7 +44,8 @@ class BookStore{
             shelves = 1;
         }
         else{
-            shelves = nrOfBooks/50;
+            double result = nrOfBooks/50.0;
+            shelves = (int)Math.ceil(result);
         }
         return shelves;
 
