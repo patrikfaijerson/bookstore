@@ -42,8 +42,8 @@ public class BookStoreController {
     @CrossOrigin
         BookStore updateBookStore(@PathVariable Integer id, @RequestBody BookStore bookStoreToUpdate){
             BookStore savedBookStore = bookStoreRepository.findById(id).get();
-            int nrOfBooks = bookstoreToUpdate.getNrOfBooks();
-            int shelves = bookstoreToUpdate.calculateShelves(nrOfBoks);         
+            int nrOfBooks = bookStoreToUpdate.getNrOfBooks();
+            int shelves = bookStoreToUpdate.calculateShelves(nrOfBooks);         
             savedBookStore.setName(bookStoreToUpdate.getName());
             savedBookStore.setAddress(bookStoreToUpdate.getAddress());
             savedBookStore.setNrOfBooks(bookStoreToUpdate.getNrOfBooks());
@@ -55,7 +55,7 @@ public class BookStoreController {
     @PostMapping(path = "/bookstore", consumes="application/json", produces="application/json")
         ResponseEntity<BookStore> createBookStore(@RequestBody BookStore bookstoreToCreate){
             int nrOfBooks = bookstoreToCreate.getNrOfBooks();
-            int shelves = bookstoreToCreate.calculateShelves(nrOfBoks);
+            int shelves = bookstoreToCreate.calculateShelves(nrOfBooks);
             bookstoreToCreate.setShelves(shelves);
             bookStoreRepository.save(bookstoreToCreate);
 
