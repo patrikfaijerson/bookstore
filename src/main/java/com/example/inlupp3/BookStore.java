@@ -19,6 +19,7 @@ class BookStore{
     private String name;
     private String address;
     private int nrOfBooks;
+    private int shelves;
 
     public BookStore(){}
 
@@ -26,6 +27,7 @@ class BookStore{
         this.name = name;
         this.address = address;
         this.nrOfBooks = nrOfBooks;
+        this.shelves = calculateShelves(nrOfBooks);
     }
 
     /**
@@ -63,6 +65,11 @@ class BookStore{
     public int getNrOfBooks() {
       return nrOfBooks;
     }
+
+    public int getShelves() {
+        return shelves;
+      }
+
    public void setId(Integer id) {
        this.id = id;
    }
@@ -79,5 +86,6 @@ class BookStore{
        this.nrOfBooks = nrOfBooks;
    }
 
+   
 
 }
