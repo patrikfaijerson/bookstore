@@ -24,6 +24,7 @@ public class BookStoreController {
     private BookStoreRepository bookStoreRepository;
 
     @GetMapping(path = "/bookstore")
+    @CrossOrigin
     List<BookStore> getAll() {
         List<BookStore> bookstores = new ArrayList<>();
         for (BookStore p : bookStoreRepository.findAll()) {
@@ -34,6 +35,7 @@ public class BookStoreController {
 
     
     @GetMapping(path = "/bookstore/{id}")
+    @CrossOrigin
     Optional<BookStore> getBookstoreById(@PathVariable Integer id) {
         return bookStoreRepository.findById(id);
     }
